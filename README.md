@@ -1,0 +1,6 @@
+This project has been made to show the compilation issue #4370 that I published a month ago, in which I described the errors I got. The original project that I'm working with is based on getting a ros msg that contains a lidar pointcloud, then filter it with some functions I have made based on cuda tensors and finally publish the returned pointcloud. The original code was a bit extensive so I made this minimal example, I replaced the ros suscriber with a downloaded pointcloud to let you check it out without having to subscribe to a rostopic.
+
+I found a solution so that if I compile the project with line 49 of CMakeLists.txt commented I got the said errors, but if it is uncommented all the project compiles and works fine (the same happens on my original project), but I don't think this should be done as I built Open3D from source with all the required flags and the flag BUIL_CUDA_MODULE should have been defined, doesn't it?.
+
+Note1: To convert from Ros Msg to open3 pointcloud (and vice versa) I have installed the perception_o3d package.
+Note2: I compile my ROS packages with the command catkin_make.
